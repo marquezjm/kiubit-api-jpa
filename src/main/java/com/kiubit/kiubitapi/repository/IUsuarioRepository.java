@@ -11,4 +11,5 @@ import com.kiubit.kiubitapi.model.Usuario;
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario, UUID> {
     Optional<Usuario> findByUsername(String username);
+    Optional<Usuario> findByUsernameOrEmail(String username, String email);
 }

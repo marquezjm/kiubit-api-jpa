@@ -2,6 +2,9 @@ package com.kiubit.kiubitapi.model;
 
 import java.util.UUID;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,10 +17,12 @@ import lombok.Data;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "uid", updatable = false, nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Column(name = "uid", updatable = false, nullable = false, length = 36)
     private UUID uid;
 
     private String username;
+    private String email;
     private String password;
     private String role;
 }

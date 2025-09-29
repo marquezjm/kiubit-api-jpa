@@ -53,6 +53,17 @@ public class AuthController {
         return response;
     }
 
+    @PostMapping("register")
+    public ApiResponse<Usuario> registrar(@RequestBody Usuario usuario) {
+        return usuarioService.registrarUsuario(usuario);
+    }
+
+    @PostMapping("update")
+    public ApiResponse<Usuario> actualizar(@RequestBody Usuario usuario) {
+        return usuarioService.actualizarUsuario(usuario);
+    }
+    
+
     @GetMapping("crear")
     public ApiResponse<Usuario> crearUsuario() {
         ApiResponse<Usuario> response = new ApiResponse<>();
